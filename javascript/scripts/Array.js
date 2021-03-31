@@ -6,6 +6,9 @@ class array {
    * @returns {Array}
    */
   static range(a, b) {
+    
+    if(a === b) return [a];
+
     let finalArray = [];
     for (a; a >= b; a--) {
       finalArray.push(a);

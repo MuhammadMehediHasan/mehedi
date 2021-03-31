@@ -37,6 +37,54 @@ class math {
   static isEven(number = 0) {
     return number % 2 === 0;
   }
+
+  static isDived(number1, number2, strict = true) {
+    if (strict) return number1 % number2 === 0;
+    else
+      return number1 > number2
+        ? number1 % number2 === 0
+        : number2 % number1 === 0;
+  }
+
+  static getPrimeDivisor(number = 0) {
+    if (number > 1) {
+      let finalArray = [];
+      let divisor = 2;
+      let result = number;
+      while (result !== 1) {
+        if (result % divisor === 0) {
+          finalArray.push(divisor);
+          result /= divisor;
+        } else {
+          divisor++;
+          while (!this.isPrime(divisor)) {
+            divisor++;
+          }
+        }
+      }
+
+      return finalArray;
+    } else {
+      // console.error("Please enter a number greater then 1");
+      return null;
+    }
+  }
+
+  static sum(... data) {
+    return data.reduce((p,c) => p + c);
+  }
+
+  static quotient(...data) {
+    return data.reduce((p,c) => p / c);
+  }
+
+  static product(...data) {
+    return data.reduce((p,c) => p * c);
+  }
+
+  static difference(...data) {
+    return data.reduce((p,c) => p - c);
+  }
 }
 
 // exporting
